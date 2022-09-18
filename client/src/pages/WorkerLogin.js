@@ -11,6 +11,63 @@ import axios from "axios";
 
 const WorkerLogin = () => {
 
+  const navigate = useNavigate();
+
+
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+
+  const [loguser, setLogUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  
+  let name, value;
+
+  const inputsHandler = (e) => {
+    name = e.target.name;
+    value = e.target.value;
+
+    setLogUser({ ...loguser, [name]: value });
+  };
+
+  const signIn = async (e) => {
+    e.preventDefault();
+
+    const { email, password } = loguser;
+
+    const data = { email, password };
+
+    await axios
+      .post("https://anyhelper.herokuapp.com/workers/login", data, { headers: { "Content-Type": "application/json" } })
+      .then((response) => {
+        console.log(response);
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("type", 1);
+          localStorage.setItem("user", JSON.stringify(response.data.user));
+          alert("Logged in Successfully!");
+          navigate(`/userdashboard/?id=${response.data.user._id}`);
+      }).catch((e) => {
+        alert("Log in failed");
+        console.log(e);
+      });
+  };
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(function(position) {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    
+      });
+    }
+  }
+  
+
+  useEffect(() => {
+    getLocation();
+  },[])
 
   return (
     <>
@@ -45,7 +102,7 @@ const WorkerLogin = () => {
             </Link>
           </p>
           <Link to="/userdashboard" className="worker_login-button">
-            <button className="worker_register_btn" type="submit">Login</button>
+            <button className="worker_register_btn" type="submit" onClick={signIn}>Login</button>
           </Link>
         </div>
       </div>  
