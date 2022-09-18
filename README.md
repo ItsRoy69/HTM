@@ -1,6 +1,5 @@
 ![AnyHELPER (1)](https://user-images.githubusercontent.com/72851613/190886635-30311697-a78c-44e2-ae0e-18e70197e90e.png)
 
-
 <br/>
 
 <h1 align="center">
@@ -65,7 +64,7 @@ First, make sure you have all these installed on your local machine & then conti
 
 ```bash
 # Clone the repository
-git clone https://github.com/ItsRoy69/HelpingHand.git
+git clone
 # Enter into the client
 cd client
 npm install
