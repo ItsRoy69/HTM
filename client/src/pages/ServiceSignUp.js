@@ -11,79 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/ServiceSignUp.css";
 
 const ServiceSignUp = () => {
-  const navigate = useNavigate();
-
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
-
-  const [customer, setCustomer] = useState({
-    name: "",
-    address: "",
-    email: "",
-    password: "",
-  });
-
-  let name, value;
-
-  const inputsHandler = (e) => {
-    name = e.target.name;
-    value = e.target.value;
-
-    setCustomer({ ...customer, [name]: value });
-    console.log(e.target.value);
-  };
-
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(function (position) {
-        setLatitude(position.coords.latitude);
-        setLongitude(position.coords.longitude);
-      });
-    }
-  };
-
-  if (latitude && longitude) {
-    localStorage.setItem("Latitude", latitude);
-    localStorage.setItem("Longitude", longitude);
-  }
-
-  // console.log("Latitude is : ", latitude);
-  // console.log("Latitude is : ", longitude);
-
-  const submitHandler = async (e) => {
-    e.preventDefault();
-
-    try {
-      const data = {
-        latitude: latitude,
-        longitude: longitude,
-        name: customer.name,
-        email: customer.email,
-        address: customer.address,
-        password: customer.password,
-      };
-      await axios
-        .post("http://localhost:8000/customers/register", data, {
-          headers: { "Content-Type": "application/json" },
-        })
-        .then((response) => {
-          alert("Registration Successfull!");
-          navigate("/servicelogin");
-          console.log(response);
-        })
-        .catch((e) => {
-          alert("Registration Unsuccessfull!");
-          console.log(e);
-        });
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    getLocation();
-  }, []);
-
+  
   return (
     <>
       <Navbar />
@@ -100,8 +28,6 @@ const ServiceSignUp = () => {
                   placeholder="Name"
                   style={{ width: "416px" }}
                   name="name"
-                  value={customer.name}
-                  onChange={inputsHandler}
                 />
               </div>
               <div className="signup_service_mail">
@@ -111,8 +37,6 @@ const ServiceSignUp = () => {
                   placeholder="Mail ID"
                   style={{ width: "416px" }}
                   name="email"
-                  value={customer.email}
-                  onChange={inputsHandler}
                 />
               </div>
               <div className="signup_service_password">
@@ -122,8 +46,6 @@ const ServiceSignUp = () => {
                   placeholder="Password"
                   style={{ width: "416px" }}
                   name="password"
-                  value={customer.password}
-                  onChange={inputsHandler}
                 />
               </div>
               <div className="signup_service_address">
@@ -133,8 +55,6 @@ const ServiceSignUp = () => {
                   placeholder="Address"
                   style={{ width: "416px" }}
                   name="address"
-                  value={customer.address}
-                  onChange={inputsHandler}
                 />
               </div>
               <div className="signup_service_buttons">
@@ -143,7 +63,6 @@ const ServiceSignUp = () => {
                     <button
                       className="signup_service_button"
                       type="submit"
-                      onClick={submitHandler}
                     >
                       Signup
                     </button>
@@ -160,7 +79,6 @@ const ServiceSignUp = () => {
           </div>
           <div className="signup_service_right">
             <img
-              src={service_signup}
               alt=""
               className="signup_service_banner"
             />

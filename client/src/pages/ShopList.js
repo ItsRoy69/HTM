@@ -7,86 +7,8 @@ import Footer from '../components/Footer';
 
 import shoplist from "../assets/blogs.jpg";
 
-import { Link ,useNavigate} from "react-router-dom";
-import Axios from "axios";
-import axios from "axios";
-
-
-// import { getDistance } from "geolib";
-// import { useSelector } from "react-redux";
-
-
-const ShopList = ({ customer }) => {
+const ShopList = () => {
   
-
-  const navigate = useNavigate();
-
-  const user = JSON.parse(localStorage.getItem("user"));
-  const [allStores, setAllStores] = useState("");
-  // const [check, setcheck] = useState(false);
-  // const locations = useSelector((state) => state.location);
-  // const [workers, setWorkers] = useState(locations);
-
-  //   // -----------------------------------------DISTANCE CALCULATION------------------------------------------------
-  //   locations.map(
-  //     (location) =>
-  //       (location.distance =
-  //         getDistance(
-  //           { latitude: location.latitude, longitude: location.longitude },
-  //           { latitude: customer.latitude, longitude: customer.longitude }
-  //         ) / 1000)
-  //   );
-
-  //   // ----------------------------------------SORTING-----------------------------------------------------
-  //   function compareDistance(a, b) {
-  //     if (a.distance < b.distance) {
-  //       return -1;
-  //     }
-  //     if (a.distance > b.distance) {
-  //       return 1;
-  //     }
-  //     return 0;
-  //   }
-
-  //   const sortWorkersBydistance = () => {
-  //     setWorkers(workers.sort(compareDistance));
-  //   };
-
-  const handleConnect = async(store) => {
-    await axios.post(
-      `http://localhost:8000/chat/create-space`, {
-        admin : user.email,
-        members : [user.admin|| user.name, store.admin],
-        spaceName : store.email,
-        chatPic : "https://www.lifehacker.com.au/2020/05/everything-you-can-and-cant-do-with-facebooks-new-avatars/",
-        chatHead: store.admin
-      }).then((res) => {
-        console.log("Space Created");
-        navigate('/chatbox');
-      }).catch((err) => {
-        console.error(err)
-        alert("You are already connected to this user.");
-        navigate('/chatbox');
-      });
-  }
-
-  const type = localStorage.getItem("type");
-
-  const getAllStores = async () => {
-    await Axios.get(`http://localhost:8000/stores/get-all-stores`).then((res) => {
-      setAllStores(res.data);
-    }).catch((e) => {
-      console.log(e);
-    });
-  };
-
-  console.log(allStores);
-
-
-  useEffect(() => {
-    getAllStores();
-  },[])
-
 
   return (
     <>
@@ -102,10 +24,7 @@ const ShopList = ({ customer }) => {
               <div
                 type="button"
                 className="btn btn-primary distclass"
-                // onClick={() => {
-                //   sortWorkersBydistance();
-                //   setcheck(!check);
-                // }}
+                
               >
                 Sort By Distance
               </div>
@@ -113,17 +32,7 @@ const ShopList = ({ customer }) => {
                 className="btn btn-secondary dropdown-toggle"
                 name="Occupation"
                 id="selectOccupation"
-                // onChange={(e) => {
-                //   if (e.target.value !== "All") {
-                //     setWorkers(
-                //       locations.filter(
-                //         (worker) => worker.occupation === e.target.value
-                //       )
-                //     );
-                //   } else {
-                //     setWorkers(locations);
-                //   }
-                // }}
+                
               >
                 <option value="All">All</option>
                 <option value="Plumbing Shop">Plumbing Shop</option>
@@ -135,10 +44,8 @@ const ShopList = ({ customer }) => {
                  
           <div className="shoplist_lists">
             <div className="row">
-            {allStores.map((store,index) => {
-            return(
               <div className="col-lg-3 mb-3">
-                <div className="shoplist_card" key={index}>
+                <div className="shoplist_card">
                   <img src={shoplist} alt="" className="shoplist_image" />
                   <div className="shoplist_carddetails">
                     <h1 className="shoplist_para">
@@ -150,45 +57,21 @@ const ShopList = ({ customer }) => {
                     <h5>Owner : {store.admin}</h5>
                     <h5>Phone : 9876543210</h5>
                     <h5>Mail : {store.email}</h5>
-                    {type == 1?
-                      <>
-                        <button className="signup_service_button"
-                          // onClick={() => {
-                          //   fetch(
-                          //     `http://localhost:5000/send-text?recipient=${num}&customer=${customer.userName}&lat=${customer.latitude}&lon=${customer.longitude}`
-                          //   ).catch((err) => console.error(err));
-                          //   alert(
-                          //     `location shared to ${worker.occupation} ${worker.name}`
-                          //   );
-                          // }}
-                          onClick={() => handleConnect(store)}
-                        >Message
-                        </button>                                  
-                      </>
-                      : 
-                      <Link to="/items">
-                        <button className="signup_service_button">Buy</button>
-                      </Link>
-                    }
-
                     
+                        <button className="signup_service_button"
+                          
+                        >Message
+                        </button>                     
                   </div>                  
                 </div>            
-              </div>
-               )
-              })}
-
-                          
+              </div>                         
               
             </div>
             
           </div>
         </div>        
       </div>
-      </>
-      : 
-      null}
-      
+      </>      
       {/* -------------------------------FOOTER------------------------------------ */}
 
       <Footer />

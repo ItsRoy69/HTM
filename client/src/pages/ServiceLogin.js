@@ -25,52 +25,6 @@ const ServiceLogin = () => {
   });
 
   
-  let name, value;
-
-  const inputsHandler = (e) => {
-    name = e.target.name;
-    value = e.target.value;
-
-    setLogUser({ ...loguser, [name]: value });
-  };
-
-  const signIn = async (e) => {
-    e.preventDefault();
-
-    const { email, password } = loguser;
-
-    const data = { email, password };
-
-    await axios
-      .post("http://localhost:8000/customers/login", data, { headers: { "Content-Type": "application/json" } })
-      .then((response) => {
-        console.log(response);
-          localStorage.setItem("token", response.data.token);
-          localStorage.setItem("type", 2);
-          localStorage.setItem("user", JSON.stringify(response.data.user));
-          alert("Logged in Successfully!");
-          navigate('/userdashboard');
-      }).catch((e) => {
-        alert("Log in failed");
-        console.log(e);
-      });
-  };
-
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(function(position) {
-      setLatitude(position.coords.latitude);
-      setLongitude(position.coords.longitude);
-    
-      });
-    }
-  }
-  
-
-  useEffect(() => {
-    getLocation();
-  },[])
-
   return (
     <>
       <Navbar />
@@ -91,7 +45,7 @@ const ServiceLogin = () => {
               </div>
               <div className="login_service_buttons">
                 <Link to="sign-up">
-                  <button className="login_service_button" type="submit" onClick={signIn}>Login</button>
+                  <button className="login_service_button" type="submit">Login</button>
                 </Link>
                 <p className="shop_registration-paralogin">Not a member of this website ? 
                   <Link to="/servicesignup" className="shop_registration-login">
