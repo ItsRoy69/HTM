@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+<br/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+✨ A hub for help and services ✨ <br/>
+</h1>
+<h3 align="center">
+With Anyhelper we provide you with all the services you need at your doorstep. All you have to do is ask. <br/>
+</h3>
+<p align="center">
+We aim to provide alot of services within an affordable price - be it selling stuffs, to hair spa, we love to keep varieties ! <br/>
+</p>
+<br/>
+<br/>
 
-## Available Scripts
+<!-- //* CONTRIBUTE  -->
 
-In the project directory, you can run:
+<h1 align="center">
+Tech stack used ? 
+</h1>
 
-### `npm start`
+<p align="center">
+    <img alt="C" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
+    <img alt="C" src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge&logo=node.js&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge">
+    <img alt="C" src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/Bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/VSCode-%23007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/CSS-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">    
+    <img alt="C" src="https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white">
+    
+</p>
+</br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<p align="center">
+We are built with MERN Stack, with designings done in Canva, Figma and so much more. We have also tried out best to maintain responsiveness for mobiles ! </p>
+</br>
+</br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h1 align="center">
+Architecture of the web app
+</h1>
 
-### `npm test`
+<p align="center">
+    
+</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+</br>
+</br>
 
-### `npm run build`
+<h1 align="center">
+Getting started
+</h1>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p align="center">
+First, make sure you have all these installed on your local machine & then continue.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js v16.13.1^
+- NPM v8.1.0^
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+```bash
+# Clone the repository
+git clone https://github.com/ItsRoy69/HelpingHand.git
+# Enter into the client
+cd client
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Enter into server
+cd server
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Starting the application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+# To start the client application
+npm start
+# To start server application
+npm run start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+</p>
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</br>
+</br>
