@@ -36,16 +36,6 @@ Tech stack used ?
 
 <p align="center">
 We are built with MERN Stack, with designings done in Canva, Figma and so much more. We have also tried out best to maintain responsiveness for mobiles ! </p>
-</br>
-</br>
-
-<h1 align="center">
-Architecture of the web app
-</h1>
-
-<p align="center">
-    
-</p>
 
 </br>
 </br>
